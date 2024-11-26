@@ -76,3 +76,32 @@ console.log(`Plant count: ${plantCount}`);
 console.log(`Total Space required: ${totalSpaceRequired.toFixed(2)} square meters`);
 console.log(`Additional space needed: ${additionalSpace.toFixed(2)} square meters`);
 console.log(`New radius for the expanded garden: ${newRadius.toFixed(2)} meters`);
+
+//Pt.3 Errors in Judgement
+
+try {
+     // Step 1: Calculate the current garden area (already done above)
+  // Reuse the `currentArea` constant
+
+  // Step 2: Calculate the plant count after 10 weeks (already done above)
+  // Reuse the `plantCount` variable
+
+  // Step 3: Calculate the total space required for all plants (already done above)
+  // Reuse the `totalSpaceRequired` variable
+
+  // Step 4: Check if the total space required exceeds the current garden's capacity
+    if (totalSpaceRequired > currentArea) {
+       // If true, thro an error
+       throw new Error(
+        `The required space (${totalSpaceRequired.toFixed(2)} square meters) exceeds the available space (${currentArea.toFixed(2)} square meters) in the garden.`
+       );
+    }
+
+    // step 5: if no error, log a success message
+    console.log("THe garden can accomodate the plants after 10 weeks.");
+    console.log(`Total space required: ${totalSpaceRequired.toFixed(2)} square meters`);
+    console.log(`Available space: ${currentArea.toFixed(2)} square meters.`);
+} catch (error) {
+    //catch block to handle the error
+    console.error("Error: " + error.message);
+}
