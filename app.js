@@ -44,3 +44,35 @@ function plantGrowthPrediction(weeks) {
 plantGrowthPrediction(1);
 plantGrowthPrediction(2);
 plantGrowthPrediction(3);
+
+// Pt. 2 Thinking Bigger
+const startingPlantCount = 100; // starting number of plants
+const currentRadius = 5; // current garden radius in meters
+
+//step 1: Calculate the current garden area
+const currentArea = PI * currentRadius * currentRadius; //Area of a circle formula: PI * r^2
+
+//step 2: Calculate the plant count after 10 weeks
+let plantCount = startingPlantCount; //starting count
+const weeks = 10;
+
+for (let i = 1; i <= weeks; i++) {
+    plantCount *= 2; //plants double each week
+}
+
+//step 3: Calculate the total space required for all the plants
+const totalSpaceRequired = plantCount * spacePerPlant; //total space needed for all the plants
+
+//step 4: Calculate the additional space needed
+const additionalSpace = totalSpaceRequired - currentArea; //space required beyond the current garden
+
+//step 5: Determine the new radius for the expanded garden
+const expandedArea = totalSpaceRequired; //The total area of the new garden
+const newRadius = Math.sqrt(expandedArea / PI); //rearrange the area formula: r = sqrt(area / PI)
+
+// step 6: output results
+console.log(`After 10 weeks:`);
+console.log(`Plant count: ${plantCount}`);
+console.log(`Total Space required: ${totalSpaceRequired.toFixed(2)} square meters`);
+console.log(`Additional space needed: ${additionalSpace.toFixed(2)} square meters`);
+console.log(`New radius for the expanded garden: ${newRadius.toFixed(2)} meters`);
